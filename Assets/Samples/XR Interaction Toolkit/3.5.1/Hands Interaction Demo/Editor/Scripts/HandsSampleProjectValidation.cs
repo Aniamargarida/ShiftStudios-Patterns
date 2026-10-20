@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using TMPro;
 using Unity.XR.CoreUtils.Editor;
 using UnityEditor.PackageManager;
 using UnityEditor.PackageManager.Requests;
@@ -27,13 +25,8 @@ namespace UnityEditor.XR.Interaction.Toolkit.Samples.Hands.Editor
         const string k_HandsPackageName = "com.unity.xr.hands";
         const string k_XRIPackageName = "com.unity.xr.interaction.toolkit";
         const string k_ShaderGraphPackageName = "com.unity.shadergraph";
-
-        static readonly PackageVersion s_MinimumHandsPackageVersion = new PackageVersion("1.6.2");
-        static readonly PackageVersion s_RecommendedHandsPackageVersion = new PackageVersion("1.6.2");
-        static readonly PackageVersion s_TargetInstallHandsPackageVersion = new PackageVersion("1.7.3");
-
-        static AddRequest s_HandsPackageAddRequest;
-        static AddRequest s_ShaderGraphPackageAddRequest;
+        static readonly PackageVersion s_MinimumHandsPackageVersion = new PackageVersion("1.5.1");
+        static readonly PackageVersion s_RecommendedHandsPackageVersion = new PackageVersion("1.6.1");
 
         static readonly BuildTargetGroup[] s_BuildTargetGroups =
             ((BuildTargetGroup[])Enum.GetValues(typeof(BuildTargetGroup))).Distinct().ToArray();
@@ -49,7 +42,7 @@ namespace UnityEditor.XR.Interaction.Toolkit.Samples.Hands.Editor
                 FixIt = () =>
                 {
                     if (s_HandsPackageAddRequest == null || s_HandsPackageAddRequest.IsCompleted)
-                        ProjectValidationUtility.InstallOrUpdatePackage(k_HandsPackageName, s_TargetInstallHandsPackageVersion, ref s_HandsPackageAddRequest);
+                        InstallOrUpdateHands();
                 },
                 FixItAutomatic = true,
                 Error = true,
@@ -63,7 +56,7 @@ namespace UnityEditor.XR.Interaction.Toolkit.Samples.Hands.Editor
                 FixIt = () =>
                 {
                     if (s_HandsPackageAddRequest == null || s_HandsPackageAddRequest.IsCompleted)
-                        ProjectValidationUtility.InstallOrUpdatePackage(k_HandsPackageName, s_TargetInstallHandsPackageVersion, ref s_HandsPackageAddRequest);
+                        InstallOrUpdateHands();
                 },
                 FixItAutomatic = true,
                 Error = false,
@@ -116,17 +109,10 @@ namespace UnityEditor.XR.Interaction.Toolkit.Samples.Hands.Editor
                 FixItAutomatic = true,
                 Error = false,
             },
-            new BuildValidationRule
-            {
-                Message = $"[{k_SampleDisplayName}] TextMesh Pro - TMP Essentials must be installed for this sample.",
-                HelpText = "Can be installed using Window > TextMeshPro > Import TMP Essential Resources or by clicking this Edit button and then Import TMP Essentials in the window that appears.",
-                Category = k_Category,
-                CheckPredicate = () => TextMeshProEssentialsInstalled(),
-                FixIt = () => TMP_PackageResourceImporterWindow.ShowPackageImporterWindow(),
-                FixItAutomatic = false,
-                Error = true,
-            },
         };
+
+        static AddRequest s_HandsPackageAddRequest;
+        static AddRequest s_ShaderGraphPackageAddRequest;
 
         [InitializeOnLoadMethod]
         static void RegisterProjectValidationRules()
@@ -204,11 +190,39 @@ namespace UnityEditor.XR.Interaction.Toolkit.Samples.Hands.Editor
             return string.IsNullOrEmpty(packageVersion) ? packageName : $"{packageName}@{packageVersion}";
         }
 
-        static bool TextMeshProEssentialsInstalled()
+        static void InstallOrUpdateHands()
         {
-            // Matches logic in Project Settings window, see TMP_PackageResourceImporter.cs.
-            // For simplicity, we don't also copy the check if the asset needs to be updated.
-            return File.Exists(Path.Combine("Assets", "TextMesh Pro", "Resources", "TMP Settings.asset"));
+            // Set a 3-second timeout for request to avoid editor lockup
+            var currentTime = DateTime.Now;
+            var endTime = currentTime + TimeSpan.FromSeconds(3);
+
+            var request = Client.Search(k_HandsPackageName);
+            if (request.Status == StatusCode.InProgress)
+            {
+                Debug.Log($"Searching for ({k_HandsPackageName}) in Unity Package Registry.");
+                while (request.Status == StatusCode.InProgress && currentTime < endTime)
+                    currentTime = DateTime.Now;
+            }
+
+            var addRequest = k_HandsPackageName;
+            if (request.Status == StatusCode.Success && request.Result.Length > 0)
+            {
+                var versions = request.Result[0].versions;
+#if UNITY_2022_2_OR_NEWER
+                var recommendedVersion = new PackageVersion(versions.recommended);
+#else
+                var recommendedVersion = new PackageVersion(versions.verified);
+#endif
+                var latestCompatible = new PackageVersion(versions.latestCompatible);
+                if (recommendedVersion < s_RecommendedHandsPackageVersion && s_RecommendedHandsPackageVersion <= latestCompatible)
+                    addRequest = $"{k_HandsPackageName}@{s_RecommendedHandsPackageVersion}";
+            }
+
+            s_HandsPackageAddRequest = Client.Add(addRequest);
+            if (s_HandsPackageAddRequest.Error != null)
+            {
+                Debug.LogError($"Package installation error: {s_HandsPackageAddRequest.Error}: {s_HandsPackageAddRequest.Error.message}");
+            }
         }
 
         static string GetImportSampleVersionMessage(string packageFolderName, string sampleDisplayName, PackageVersion version)
