@@ -49,13 +49,16 @@ public class LoungeManager : MonoBehaviour
         jelly.weight = 0f;
         confirmButton.action.Enable();
         SetBodyMovement(false);
+        Debug.Log("Monologue Playing");
 
         yield return Say(monologue); //starts dialogue
+        Debug.Log("Monologue done. walk, chair");
 // after dialogue ends, unlock movement and trigger chair glow
         SetBodyMovement(true);
         chairGlow.StartGlow();
 //after chair is interacted with, stop the glow and lock movement
-        yield return new WaitUntil(() => chair.isSelected); 
+        yield return new WaitUntil(() => chair.isSelected);
+        Debug.Log("Chair Selected. Fading out");
         chairGlow.StopGlow();
         SetBodyMovement(false);
 //fade the screen to black and align camera to sitting view; fade back in (easier on the eyes in vr)
@@ -63,10 +66,12 @@ public class LoungeManager : MonoBehaviour
         seatAligner.AlignToSeat();
         
         yield return screenFader.FadeIn();
+        Debug.Log("Fade done. Coworker dialogue start");
         coworkerVoice.clip = coworkerDialogue;
         coworkerVoice.Play();
         
         yield return new WaitForSeconds(lowerAfterSeconds);
+        Debug.Log("Lowering coworker vol. Internal thoughts playing");
         StartCoroutine(Ramp(coworkerVoice.volume, loweredVolume, lowerFadeSeconds, v => coworkerVoice.volume = v));
        //after internal thoughts end
        yield return Say(thoughtsBFork);
@@ -108,6 +113,11 @@ public class LoungeManager : MonoBehaviour
         }
 
         apply(to);
+    }
+
+    void OnDestroy()
+    {
+        confirmButton.action.Disable();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
