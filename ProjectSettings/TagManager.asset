@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Anchor
   - Hand
+  - FeedingZone
   layers:
   - Default
   - TransparentFX
