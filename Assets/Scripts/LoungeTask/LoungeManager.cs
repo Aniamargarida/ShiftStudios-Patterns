@@ -20,17 +20,18 @@ public class LoungeManager : MonoBehaviour
     
     [Header("Chair/Seating")]
     public XRBaseInteractable chair;
-    public Glow chairGlow;
+    public GlowEffect chairGlow;
     public SeatAligner seatAligner;
     public ScreenFader screenFader;
     
     [Header("Fork")]
     public XRBaseInteractable fork;
-    public Glow forkGlow;
+    public GlowEffect forkGlow;
     
     [Header("Notebook")]
     public XRBaseInteractable notebook;
-    public Glow notebookGlow;
+    public GlowEffect notebookGlow;
+    public NotebookInteraction notebookUI;
     public InputActionReference confirmButton;
 
     [Header("Jelly")]
@@ -85,6 +86,16 @@ public class LoungeManager : MonoBehaviour
         yield return Say(thoughtsAFork);
         notebook.enabled = true;
         notebookGlow.StartGlow();
+
+        yield return new WaitUntil(() => notebook.isSelected);
+        notebookGlow.StopGlow();
+        notebookUI.OpenNotebook();
+        yield return new WaitForSeconds(1f); //so the grab can't count as the confirm
+        yield return new WaitUntil(() => confirmButton.action.WasPressedThisFrame());
+        notebookUI.CloseNotebook();
+        notebook.gameObject.SetActive(false); //the notebook disappears once read
+        
+        
 
 
     }
