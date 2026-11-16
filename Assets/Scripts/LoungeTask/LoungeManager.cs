@@ -32,6 +32,7 @@ public class LoungeManager : MonoBehaviour
     public XRBaseInteractable notebook;
     public GlowEffect notebookGlow;
     public NotebookInteraction notebookUI;
+    public GameObject notebookCanvas;
     public InputActionReference confirmButton;
 
     [Header("Jelly")]
@@ -43,6 +44,7 @@ public class LoungeManager : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float loweredVolume = 0.25f; 
     public float lowerFadeSeconds = 2f;
 
+    [SerializeField] private BreathingExercise breathing;
     IEnumerator Start()
     {
         fork.enabled = false;
@@ -90,13 +92,14 @@ public class LoungeManager : MonoBehaviour
         yield return new WaitUntil(() => notebook.isSelected);
         notebookGlow.StopGlow();
         notebookUI.OpenNotebook();
-        yield return new WaitForSeconds(1f); //so the grab can't count as the confirm
-        yield return new WaitUntil(() => confirmButton.action.WasPressedThisFrame());
-        notebookUI.CloseNotebook();
+        Debug.Log("Notebook Opened");
+        yield return new WaitUntil(() => !notebookCanvas.activeSelf);
+        Debug.Log("Notebook Closed LM");
         notebook.gameObject.SetActive(false); //the notebook disappears once read
-        
-        
+        Debug.Log("Notebook gone");
 
+        breathing.Begin();
+        Debug.Log("Breathing started");
 
     }
 
