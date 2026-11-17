@@ -6,7 +6,7 @@ public class GlowEffect : MonoBehaviour
     [SerializeField] private Renderer rend;
 
     [SerializeField, ColorUsage(false, true)]
-    private Color glowColor = Color.white;
+    private Color glowColor;
 
     [SerializeField] private float pulseSpeed = 1f;
     [SerializeField] private float fadeInTime = 2f;
