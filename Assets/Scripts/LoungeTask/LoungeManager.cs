@@ -20,17 +20,19 @@ public class LoungeManager : MonoBehaviour
     
     [Header("Chair/Seating")]
     public XRBaseInteractable chair;
-    public Glow chairGlow;
+    public GlowEffect chairGlow;
     public SeatAligner seatAligner;
     public ScreenFader screenFader;
     
     [Header("Fork")]
     public XRBaseInteractable fork;
-    public Glow forkGlow;
+    public GlowEffect forkGlow;
     
     [Header("Notebook")]
     public XRBaseInteractable notebook;
-    public Glow notebookGlow;
+    public GlowEffect notebookGlow;
+    public NotebookInteraction notebookUI;
+    public GameObject notebookCanvas;
     public InputActionReference confirmButton;
 
     [Header("Jelly")]
@@ -42,6 +44,7 @@ public class LoungeManager : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float loweredVolume = 0.25f; 
     public float lowerFadeSeconds = 2f;
 
+    [SerializeField] private BreathingExercise breathing;
     IEnumerator Start()
     {
         fork.enabled = false;
@@ -86,6 +89,17 @@ public class LoungeManager : MonoBehaviour
         notebook.enabled = true;
         notebookGlow.StartGlow();
 
+        yield return new WaitUntil(() => notebook.isSelected);
+        notebookGlow.StopGlow();
+        notebookUI.OpenNotebook();
+        Debug.Log("Notebook Opened");
+        yield return new WaitUntil(() => !notebookCanvas.activeSelf);
+        Debug.Log("Notebook Closed LM");
+        notebook.gameObject.SetActive(false); //the notebook disappears once read
+        Debug.Log("Notebook gone");
+
+        breathing.Begin();
+        Debug.Log("Breathing started");
 
     }
 
