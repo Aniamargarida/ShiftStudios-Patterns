@@ -16,6 +16,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private BagPacking bagPacking;
     
     [SerializeField] private NotebookInteraction notebookInteraction;
+    [SerializeField] private GlowEffect glowEffect;
 
     private bool waitingForPhone = false;
     private bool newChecklistReady = false;
@@ -156,7 +157,7 @@ public class TaskManager : MonoBehaviour
         
         if (completedCycles >= 2 && notebookInteraction != null)
         {
-            notebookInteraction.StartGlowIfUnread();
+            glowEffect.StartGlow();
         }
     }
 }

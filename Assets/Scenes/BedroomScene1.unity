@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!23 &6754908 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1903157066103099834, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+  m_PrefabInstance: {fileID: 1881288289}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &31399228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,6 +1333,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1810146246}
+  - {fileID: 1542431676}
   m_Father: {fileID: 1043729126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3039,7 +3045,6 @@ MonoBehaviour:
   notebookCanvas: {fileID: 1043729122}
   playerCamera: {fileID: 184209005}
   distanceFromPlayer: 1.2
-  glowEffect: {fileID: 684046781}
 --- !u!65 &684046778
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3109,7 +3114,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 684046777}
         m_TargetAssemblyTypeName: NotebookInteraction, Assembly-CSharp
         m_MethodName: OpenNotebook
         m_Mode: 1
@@ -3159,7 +3164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c34db65e8522f46baf490d16b3b23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GlowEffect
-  rend: {fileID: 0}
+  rend: {fileID: 6754908}
   glowColor: {r: 1, g: 0.868169, b: 0.4009434, a: 1}
   pulseSpeed: 1
   fadeInTime: 2
@@ -8182,6 +8187,7 @@ GameObject:
   - component: {fileID: 810835303}
   - component: {fileID: 810835302}
   - component: {fileID: 810835301}
+  - component: {fileID: 810835305}
   m_Layer: 0
   m_Name: ExitDoor
   m_TagString: Untagged
@@ -8204,12 +8210,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 8.2}
+  m_Center: {x: 0, y: 0, z: -2.94}
 --- !u!23 &810835302
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8282,6 +8288,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &810835305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810835300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335152d1f5d0e724899d55815b4d7e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoadNextScene
+  sceneName: OfficeScene
+  requiredTag: Player
 --- !u!4 &838237268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5fef41d7742842c4aa7363fe9e080667, type: 3}
@@ -8936,7 +8956,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 236237020}
-  - {fileID: 1542431676}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -14450,7 +14469,8 @@ MonoBehaviour:
   stoveManager: {fileID: 86424757}
   fishFeeding: {fileID: 579701600}
   bagPacking: {fileID: 1477391475}
-  notebookInteraction: {fileID: 0}
+  notebookInteraction: {fileID: 684046777}
+  glowEffect: {fileID: 684046781}
 --- !u!4 &1504569646
 Transform:
   m_ObjectHideFlags: 0
@@ -15067,12 +15087,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542431675}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2}
-  m_LocalScale: {x: 800, y: 450, z: 1}
+  m_LocalScale: {x: 800.00006, y: 450.00003, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1043729126}
+  m_Father: {fileID: 236237020}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15127,7 +15147,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 684046777}
         m_TargetAssemblyTypeName: NotebookInteraction, Assembly-CSharp
         m_MethodName: CloseNotebook
         m_Mode: 1
