@@ -1,16 +1,10 @@
-
 using UnityEngine;
 
 public class NotebookInteraction : MonoBehaviour
 {
     [SerializeField] private GameObject notebookCanvas;
     [SerializeField] private Transform playerCamera;
-    [SerializeField] private float distanceFromPlayer;
-    
-    [SerializeField] private GlowEffect glowEffect;
-    
-    private bool notebookRead = false;
-    private bool notebookUnlocked = false;
+    [SerializeField] private float distanceFromPlayer = 1.2f;
 
     private void Start()
     {
@@ -19,17 +13,6 @@ public class NotebookInteraction : MonoBehaviour
 
     public void OpenNotebook()
     {
-        if (!notebookUnlocked)
-            return;
-        
-        if (!notebookRead)
-        {
-            notebookRead = true;
-
-            if (glowEffect != null)
-                glowEffect.StopGlow();
-        }
-        
         // Position the notes in front of the player
         Vector3 forward = playerCamera.forward;
         forward.y = 0;
@@ -53,16 +36,4 @@ public class NotebookInteraction : MonoBehaviour
 
         Debug.Log("Notebook closed");
     }
-    
-    public void StartGlowIfUnread()
-    {
-        if (!notebookRead)
-        {
-            notebookUnlocked = true;
-
-            if (glowEffect != null)
-                glowEffect.StartGlow();
-        }
-    }
 }
-
