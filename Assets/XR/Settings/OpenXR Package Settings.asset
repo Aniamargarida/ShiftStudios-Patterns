@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6096094d69d82cc40947df806f66ab34, type: 3}
   m_Name: OpenXRCompositionLayersFeature Standalone
   m_EditorClassIdentifier: Unity.XR.OpenXR::UnityEngine.XR.OpenXR.Features.CompositionLayers.OpenXRCompositionLayersFeature
-  m_enabled: 0
+  m_enabled: 1
   nameUi: Composition Layers Support
   version: 1.0.0
   featureIdInternal: com.unity.openxr.feature.compositionlayers
@@ -1058,55 +1058,55 @@ MonoBehaviour:
   m_Name: Standalone
   m_EditorClassIdentifier: Unity.XR.OpenXR::UnityEngine.XR.OpenXR.OpenXRSettings
   features:
-  - {fileID: 6260542487981792549}
-  - {fileID: -5240712675142879026}
-  - {fileID: 1804574795092242640}
-  - {fileID: -15768551143213711}
-  - {fileID: 7505362533204713707}
-  - {fileID: -2848115585422639888}
+  - {fileID: 8690041989637404104}
+  - {fileID: 1026364050307871710}
+  - {fileID: -8216813852507149585}
+  - {fileID: 4571385556814797886}
+  - {fileID: -4699593127470380049}
+  - {fileID: -1734359686637032990}
+  - {fileID: -3427433175849605622}
+  - {fileID: -4707864234760236627}
+  - {fileID: -2052711335491431797}
+  - {fileID: -2208025739990877164}
+  - {fileID: -8301225556341397981}
+  - {fileID: -2377113002138460160}
+  - {fileID: -6792940800319007326}
+  - {fileID: -5727670747133940992}
   - {fileID: 3260241706034415307}
-  - {fileID: -632420607147597948}
-  - {fileID: 1901307963050374898}
-  - {fileID: 1425359854369732808}
-  - {fileID: 2043706685172430640}
+  - {fileID: -2848115585422639888}
+  - {fileID: 1804574795092242640}
+  - {fileID: 6754082526918798564}
+  - {fileID: 5656433691741221206}
   - {fileID: 4692591871552328193}
+  - {fileID: -632420607147597948}
+  - {fileID: 7984417322722859800}
+  - {fileID: 2850467369410149842}
+  - {fileID: 2043706685172430640}
   - {fileID: 5435647015108978345}
+  - {fileID: -15768551143213711}
+  - {fileID: 7209612784294144947}
+  - {fileID: 4972229363071297753}
+  - {fileID: 1901307963050374898}
+  - {fileID: -7136567358892514133}
+  - {fileID: 5196421931973906540}
+  - {fileID: -8590222947997203308}
+  - {fileID: -3402412456608217124}
+  - {fileID: -7223504077352843778}
+  - {fileID: 5499649180558620858}
+  - {fileID: 4084184588485248225}
+  - {fileID: 3770552098972990238}
+  - {fileID: -6790317777917968515}
+  - {fileID: 1161838547633693357}
+  - {fileID: 3627967600061721797}
+  - {fileID: 7505362533204713707}
+  - {fileID: -3152884038351060896}
+  - {fileID: -5240712675142879026}
   - {fileID: 7439269542083165012}
   - {fileID: 734152421888641128}
+  - {fileID: 6260542487981792549}
   - {fileID: 5955866153465983310}
-  - {fileID: 2850467369410149842}
-  - {fileID: 4972229363071297753}
-  - {fileID: 5656433691741221206}
-  - {fileID: 6754082526918798564}
-  - {fileID: 7984417322722859800}
-  - {fileID: -3152884038351060896}
-  - {fileID: 3627967600061721797}
-  - {fileID: -8590222947997203308}
-  - {fileID: 5499649180558620858}
-  - {fileID: -7223504077352843778}
-  - {fileID: 3770552098972990238}
-  - {fileID: -3402412456608217124}
-  - {fileID: 5196421931973906540}
-  - {fileID: -7136567358892514133}
-  - {fileID: 1161838547633693357}
-  - {fileID: 4084184588485248225}
-  - {fileID: -6790317777917968515}
-  - {fileID: 8690041989637404104}
-  - {fileID: 7209612784294144947}
+  - {fileID: 1425359854369732808}
   - {fileID: 5074250403869912523}
-  - {fileID: -3427433175849605622}
-  - {fileID: -5727670747133940992}
-  - {fileID: -2052711335491431797}
-  - {fileID: 1026364050307871710}
-  - {fileID: 4571385556814797886}
-  - {fileID: -6792940800319007326}
-  - {fileID: -8301225556341397981}
-  - {fileID: -4707864234760236627}
-  - {fileID: -1734359686637032990}
-  - {fileID: -2208025739990877164}
-  - {fileID: -2377113002138460160}
-  - {fileID: -4699593127470380049}
-  - {fileID: -8216813852507149585}
   customLoaderName: 
   m_renderMode: 1
   m_latencyOptimization: 0
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_symmetricProjection: 0
   m_optimizeMultiviewRenderRegions: 0
   m_multiviewRenderRegionsOptimizationMode: 0
-  m_hasMigratedMultiviewRenderRegionSetting: 0
+  m_hasMigratedMultiviewRenderRegionSetting: 1
   m_foveatedRenderingApi: 1
   m_useOpenXRPredictedTime: 1
 --- !u!114 &7439269542083165012

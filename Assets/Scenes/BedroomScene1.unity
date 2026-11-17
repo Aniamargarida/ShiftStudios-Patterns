@@ -3019,6 +3019,150 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TapInteraction
   taskManager: {fileID: 1504569645}
   waterEffect: {fileID: 1068168599}
+--- !u!1 &684046776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+  m_PrefabInstance: {fileID: 1881288289}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &684046777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684046776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7e8d4bc9de03e468e38e1408a183bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NotebookInteraction
+  notebookCanvas: {fileID: 1043729122}
+  playerCamera: {fileID: 184209005}
+  distanceFromPlayer: 1.2
+  glowEffect: {fileID: 684046781}
+--- !u!65 &684046778
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684046776}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &684046779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684046776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NotebookInteraction, Assembly-CSharp
+        m_MethodName: OpenNotebook
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
+--- !u!114 &684046781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684046776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c34db65e8522f46baf490d16b3b23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlowEffect
+  rend: {fileID: 0}
+  glowColor: {r: 1, g: 0.868169, b: 0.4009434, a: 1}
+  pulseSpeed: 1
+  fadeInTime: 2
 --- !u!1 &762264446
 GameObject:
   m_ObjectHideFlags: 0
@@ -8386,11 +8530,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StoveKnobInteraction
   stoveManager: {fileID: 86424757}
   rotationAmount: -90
---- !u!23 &973636950 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -1903157066103099834, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-  m_PrefabInstance: {fileID: 1555308702}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1007435030
 GameObject:
   m_ObjectHideFlags: 0
@@ -14311,7 +14450,7 @@ MonoBehaviour:
   stoveManager: {fileID: 86424757}
   fishFeeding: {fileID: 579701600}
   bagPacking: {fileID: 1477391475}
-  notebookInteraction: {fileID: 1555308706}
+  notebookInteraction: {fileID: 0}
 --- !u!4 &1504569646
 Transform:
   m_ObjectHideFlags: 0
@@ -14988,7 +15127,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1555308706}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NotebookInteraction, Assembly-CSharp
         m_MethodName: CloseNotebook
         m_Mode: 1
@@ -15170,227 +15309,6 @@ Transform:
   - {fileID: 762264449}
   m_Father: {fileID: 566695121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1555308702
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.074
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.52
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.211
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4932475697580676000, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e20bc86e45d8368479da57f5f8a333c0, type: 2}
-    - target: {fileID: -1903157066103099834, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5064278bfcb3a5f4b9c83d4d26387faf, type: 2}
-    - target: {fileID: 919132149155446097, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      propertyPath: m_Name
-      value: TherapyNotebook
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1555308705}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1555308704}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1555308706}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1555308708}
-  m_SourcePrefab: {fileID: 100100000, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
---- !u!1 &1555308703 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 581d80178c487cd4fb9af29cf2cb424d, type: 3}
-  m_PrefabInstance: {fileID: 1555308702}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1555308704
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555308703}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1555308705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555308703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
-  m_Colliders: []
-  m_InteractionLayers:
-    m_Bits: 1
-  m_DistanceCalculationMode: 1
-  m_SelectMode: 0
-  m_FocusMode: 1
-  m_CustomReticle: {fileID: 0}
-  m_AllowGazeInteraction: 0
-  m_AllowGazeSelect: 0
-  m_OverrideGazeTimeToSelect: 0
-  m_GazeTimeToSelect: 0.5
-  m_OverrideTimeToAutoDeselectGaze: 0
-  m_TimeToAutoDeselectGaze: 3
-  m_AllowGazeAssistance: 0
-  m_FirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1555308706}
-        m_TargetAssemblyTypeName: NotebookInteraction, Assembly-CSharp
-        m_MethodName: OpenNotebook
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstFocusEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastFocusExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FocusEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FocusExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Activated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Deactivated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
-  m_StartingInteractionStrengthFilters: []
-  m_AutoFindParentInteractableInHierarchy: 0
-  m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1555308706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555308703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e7e8d4bc9de03e468e38e1408a183bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NotebookInteraction
-  notebookCanvas: {fileID: 1043729122}
-  playerCamera: {fileID: 184209005}
-  distanceFromPlayer: 1.2
-  glowEffect: {fileID: 1555308708}
---- !u!114 &1555308708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555308703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63c34db65e8522f46baf490d16b3b23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GlowEffect
-  rend: {fileID: 973636950}
-  glowColor: {r: 1, g: 0.868169, b: 0.4009434, a: 1}
-  pulseSpeed: 1
-  fadeInTime: 2
 --- !u!1 &1557229275 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1463368340771084, guid: 4bc48771517f84804bfe1e21d8bbdbe5, type: 3}
@@ -15974,6 +15892,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810146245}
   m_CullTransparentMesh: 1
+--- !u!1001 &1881288289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.93
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.533
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.254
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4932475697580676000, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 90f32d3e3538d2e4eadda2676a66f139, type: 2}
+    - target: {fileID: -1903157066103099834, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f70da52d09feeed4ca7398fa1d58982a, type: 2}
+    - target: {fileID: -1151830643580067987, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f70da52d09feeed4ca7398fa1d58982a, type: 2}
+    - target: {fileID: 919132149155446097, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      propertyPath: m_Name
+      value: SpiralNotebook
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 684046779}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 684046778}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 684046777}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 684046781}
+  m_SourcePrefab: {fileID: 100100000, guid: 1a985d4dcf647464eaba79c4f09d7f43, type: 3}
 --- !u!1 &1920206399
 GameObject:
   m_ObjectHideFlags: 0
@@ -16903,8 +16902,8 @@ SceneRoots:
   - {fileID: 2090618711}
   - {fileID: 1504569646}
   - {fileID: 566695121}
-  - {fileID: 1555308702}
   - {fileID: 1043729126}
   - {fileID: 810835304}
   - {fileID: 446646587}
   - {fileID: 2111291782}
+  - {fileID: 1881288289}
