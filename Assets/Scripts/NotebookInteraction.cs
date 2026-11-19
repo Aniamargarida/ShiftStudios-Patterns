@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class NotebookInteraction : MonoBehaviour
@@ -38,4 +37,3 @@ public class NotebookInteraction : MonoBehaviour
         Debug.Log("Notebook closed");
     }
 }
-

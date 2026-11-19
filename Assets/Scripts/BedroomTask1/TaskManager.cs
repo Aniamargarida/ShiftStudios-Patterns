@@ -14,6 +14,9 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private StoveManager stoveManager;
     [SerializeField] private FishFeedingInteraction fishFeeding;
     [SerializeField] private BagPacking bagPacking;
+    
+    [SerializeField] private NotebookInteraction notebookInteraction;
+    [SerializeField] private GlowEffect glowEffect;
 
     private bool waitingForPhone = false;
     private bool newChecklistReady = false;
@@ -151,6 +154,11 @@ public class TaskManager : MonoBehaviour
             bagPacking.ResetBag();
 
         Debug.Log("NEW CHECKLIST SEEN - Household tasks reset");
+        
+        if (completedCycles >= 2 && notebookInteraction != null)
+        {
+            glowEffect.StartGlow();
+        }
     }
 }
 
